@@ -1,0 +1,1 @@
+alter table proprietario modify column telefone varchar(15) not null;
