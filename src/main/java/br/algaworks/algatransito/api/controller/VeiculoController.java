@@ -5,6 +5,7 @@ import br.algaworks.algatransito.domain.model.Veiculo;
 import br.algaworks.algatransito.domain.repository.VeiculoRepository;
 import br.algaworks.algatransito.domain.service.CadastroVeiculoService;
 import br.algaworks.algatransito.domain.service.RegistroProprietarioService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class VeiculoController {
 
     @PostMapping("/cadastrarVeiculo")
     @ResponseStatus(HttpStatus.CREATED)//Retorno do HHTP Status mais apropriado para criacao
-    public ResponseEntity<Veiculo> cadastrarVeiculo(@RequestBody Veiculo veiculo){
+    public ResponseEntity<Veiculo> cadastrarVeiculo(@Valid @RequestBody Veiculo veiculo){
 
         return ResponseEntity.ok(cadastroVeiculoService.cadastrarVeiculo(veiculo));
 
