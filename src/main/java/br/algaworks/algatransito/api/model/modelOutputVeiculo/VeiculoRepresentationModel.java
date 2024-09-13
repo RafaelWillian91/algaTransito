@@ -1,6 +1,5 @@
-package br.algaworks.algatransito.api.model;
+package br.algaworks.algatransito.api.model.modelOutputVeiculo;
 
-import br.algaworks.algatransito.domain.model.Proprietario;
 import br.algaworks.algatransito.domain.model.StatusVeiculo;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,9 +14,9 @@ public class VeiculoRepresentationModel {
 
     private Long id;
     private String marca;
-    private String nomeProprietario;
+    private ProprietarioRepresentationResumoModel proprietario;
     private String modelo;
-    private String placa;
+    private String numeroPlaca;
     private StatusVeiculo status;
     private OffsetDateTime dataCadastro;
     private OffsetDateTime dataApreensao;
