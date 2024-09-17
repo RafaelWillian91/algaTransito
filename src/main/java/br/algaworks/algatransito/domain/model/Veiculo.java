@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,6 +24,9 @@ public class Veiculo {
     @ManyToOne
     private Proprietario proprietario;
 
+    @OneToMany(mappedBy = "veiculo")
+    private List<Autuacao> autuacoes = new ArrayList<>();
+
     private String modelo;
 
     private String placa;
@@ -35,5 +40,10 @@ public class Veiculo {
 
     private OffsetDateTime dataApreensao;
 
-
+    public Autuacao adicionarAutuacao (Autuacao autuacao){
+        autuacao.setDataOcorrencia(OffsetDateTime.now());
+        autuacao.setVeiculo(this);
+        getAutuacoes().add(autuacao);
+        return autuacao;
+    }
 }

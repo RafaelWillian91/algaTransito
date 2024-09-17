@@ -1,6 +1,6 @@
 package br.algaworks.algatransito.api.config;
 
-import br.algaworks.algatransito.api.model.modelOutputVeiculo.VeiculoRepresentationModel;
+import br.algaworks.algatransito.api.model.modelOutputVeiculoDTO.VeiculoRepresentationModelDTO;
 import br.algaworks.algatransito.domain.model.Veiculo;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -13,8 +13,8 @@ public class ModelMapperConfig {
     public ModelMapper modelMapper(){
 
         ModelMapper modelMapper = new ModelMapper();
-        modelMapper.createTypeMap(Veiculo.class, VeiculoRepresentationModel.class)
-               .addMappings(mapper -> mapper.map(Veiculo::getPlaca, VeiculoRepresentationModel::setNumeroPlaca));
+        modelMapper.createTypeMap(Veiculo.class, VeiculoRepresentationModelDTO.class)
+               .addMappings(mapper -> mapper.map(Veiculo::getPlaca, VeiculoRepresentationModelDTO::setNumeroPlaca));
 
         return modelMapper;
     };

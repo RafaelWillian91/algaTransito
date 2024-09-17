@@ -1,7 +1,7 @@
 package br.algaworks.algatransito.api.controller;
 
 import br.algaworks.algatransito.api.assembler.VeiculoAssembler;
-import br.algaworks.algatransito.api.model.modelOutputVeiculo.VeiculoRepresentationModel;
+import br.algaworks.algatransito.api.model.modelOutputVeiculoDTO.VeiculoRepresentationModelDTO;
 import br.algaworks.algatransito.api.model.modelInputVeiculo.VeiculoInputModel;
 import br.algaworks.algatransito.domain.model.Veiculo;
 import br.algaworks.algatransito.domain.repository.VeiculoRepository;
@@ -25,12 +25,12 @@ public class VeiculoController {
 
 
     @GetMapping
-    public List<VeiculoRepresentationModel> listaVeiculos(){
+    public List<VeiculoRepresentationModelDTO> listaVeiculos(){
         return veiculoAssembler.convertListDTO(veiculoRepository.findAll());
     }
 
     @GetMapping("/{idVeiculo}")
-    public ResponseEntity<VeiculoRepresentationModel> buscar (@PathVariable Long idVeiculo){
+    public ResponseEntity<VeiculoRepresentationModelDTO> buscar (@PathVariable Long idVeiculo){
        return veiculoRepository.findById(idVeiculo)
                .map(veiculoAssembler::toModel)
                .map(ResponseEntity::ok)
@@ -39,7 +39,7 @@ public class VeiculoController {
 
     @PostMapping("/cadastrarVeiculo")
     @ResponseStatus(HttpStatus.CREATED)//Retorno do HHTP Status mais apropriado para criacao
-    public VeiculoRepresentationModel cadastrarVeiculo(@Valid @RequestBody VeiculoInputModel veiculoInputModel){
+    public VeiculoRepresentationModelDTO cadastrarVeiculo(@Valid @RequestBody VeiculoInputModel veiculoInputModel){
 
             Veiculo novoVeiculo = veiculoAssembler.veiculoInputModel(veiculoInputModel);
 
