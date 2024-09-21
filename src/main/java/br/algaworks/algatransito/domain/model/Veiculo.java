@@ -24,7 +24,7 @@ public class Veiculo {
     @ManyToOne
     private Proprietario proprietario;
 
-    @OneToMany(mappedBy = "veiculo")
+    @OneToMany(mappedBy = "veiculo", cascade = CascadeType.ALL)
     private List<Autuacao> autuacoes = new ArrayList<>();
 
     private String modelo;

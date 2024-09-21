@@ -21,6 +21,8 @@ public class Autuacao {
 
     @ManyToOne
     private Veiculo veiculo;
+
+    @Column(name = "descricao")
     private String description;
 
     private BigDecimal valorMulta;
