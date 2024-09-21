@@ -1,5 +1,6 @@
 package br.algaworks.algatransito.api.exceptionHandler;
 
+import br.algaworks.algatransito.domain.exception.EntidadeNaoEncontradaException;
 import br.algaworks.algatransito.domain.exception.NegocioException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -40,6 +41,15 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
         ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
         problemDetail.setTitle(e.getMessage());
+        return problemDetail;
+    }
+
+    @ExceptionHandler(EntidadeNaoEncontradaException.class)
+    public ProblemDetail handleEntidadeNaoEncontrada(EntidadeNaoEncontradaException e){
+
+        ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
+        problemDetail.setTitle(e.getMessage());
+        problemDetail.setType(URI.create("https://camposInvalidos.com/erros/nao-encontrado"));
         return problemDetail;
     }
 

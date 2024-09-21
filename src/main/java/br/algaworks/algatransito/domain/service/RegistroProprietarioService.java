@@ -1,5 +1,6 @@
 package br.algaworks.algatransito.domain.service;
 
+import br.algaworks.algatransito.domain.exception.EntidadeNaoEncontradaException;
 import br.algaworks.algatransito.domain.exception.NegocioException;
 import br.algaworks.algatransito.domain.model.Proprietario;
 import br.algaworks.algatransito.domain.repository.ProprietarioRepository;

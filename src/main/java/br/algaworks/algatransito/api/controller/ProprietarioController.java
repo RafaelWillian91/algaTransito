@@ -1,21 +1,15 @@
 package br.algaworks.algatransito.api.controller;
 
-import br.algaworks.algatransito.domain.exception.NegocioException;
 import br.algaworks.algatransito.domain.model.Proprietario;
 import br.algaworks.algatransito.domain.repository.ProprietarioRepository;
 import br.algaworks.algatransito.domain.service.RegistroProprietarioService;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
