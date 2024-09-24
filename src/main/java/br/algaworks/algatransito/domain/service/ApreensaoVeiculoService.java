@@ -15,10 +15,13 @@ public class ApreensaoVeiculoService {
     @Transactional
     public void apreender(Long idVeiculo){
         Veiculo veiculo = cadastroVeiculoService.buscar(idVeiculo);
-        if(veiculo.getStatus().equals(StatusVeiculo.APREENDIDO)){
-            //throw
-        }
-        veiculo.setStatus(StatusVeiculo.APREENDIDO);
+        veiculo.apreender();
+    }
+
+    @Transactional
+    public void removerApreensao(Long idVeiculo){
+        Veiculo veiculo = cadastroVeiculoService.buscar(idVeiculo);
+        veiculo.removerApreensao();
     }
 
 }
