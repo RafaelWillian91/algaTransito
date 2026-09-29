@@ -1,6 +1,6 @@
 ***************************  Ignição Spring REST    *************************************
 
-Este projeto foi desenvolvido como parte do curso Ignição Spring REST, feito na algaworks. O objetivo principal do projeto é aplicar os fundamentos do Spring Boot e do desenvolvimento de APIs RESTful.
+Este projeto foi desenvolvido como parte do curso Ignição Spring REST, feito na algaworks. O objetivo principal do projeto é aplicar os fundamentos do Spring Boot e do desenvolvimento de APIs RESTful. O projeto simula um sistema de gerenciamento de trânsito (controlando autuações, veículos e proprietários) e serve como base para introduzir os principais conceitos de desenvolvimento de software back-end moderno.
 Funcionalidades
 
     Construção de uma API REST para gerenciar recursos.
